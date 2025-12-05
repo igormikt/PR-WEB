@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>PR-WEB Clicker</title>
+</head>
+<body>
+    <h1>Привет, {{ current_user.username }}!</h1>
+    <p>Кликов: {{ current_user.clicks }}</p>
+    <a href="{{ url_for('click') }}"><button>Кликнуть!</button></a>
+    <a href="{{ url_for('logout') }}"><button>Выйти</button></a>
+</body>
+</html>
