@@ -1,23 +1,74 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Вход - PR-WEB</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 </head>
 <body>
-    <h1>Вход</h1>
-    {% with messages = get_flashed_messages(with_categories=true) %}
-        {% if messages %}
-            {% for category, message in messages %}
-                <p>{{ message }}</p>
-            {% endfor %}
-        {% endif %}
-    {% endwith %}
-    <form method="POST">
-        {{ form.hidden_tag() }}
-        <p>{{ form.username.label }}<br>{{ form.username(size=32) }}</p>
-        <p>{{ form.password.label }}<br>{{ form.password(size=32) }}</p>
-        <p>{{ form.submit() }}</p>
-    </form>
-    <p>Нет аккаунта? <a href="{{ url_for('register') }}">Регистрация</a></p>
+    <nav>
+        <a href="{{ url_for('login') }}" class="logo">PR-WEB</a>
+        <div class="nav-links">
+            <a href="{{ url_for('register') }}">Регистрация</a>
+        </div>
+    </nav>
+
+    <div class="container">
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                {% for category, message in messages %}
+                    <div class="flash {{ category }}">{{ message }}</div>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+
+        <h1>Вход</h1>
+
+        <form method="POST">
+            {{ form.hidden_tag() }}
+
+            <div>
+                <label>{{ form.username.label }}</label>
+                {{ form.username(size=32) }}
+            </div>
+
+            <div>
+                <label>{{ form.password.label }}</label>
+                {{ form.password(size=32) }}
+            </div>
+
+            {{ form.submit() }}
+        </form>
+
+        <p>Нет аккаунта? <a href="{{ url_for('register') }}">Зарегистрироваться</a></p>
+    </div>
 </body>
 </html>
+
+
+
+<!--<!DOCTYPE html>-->
+<!--<html>-->
+<!--<head>-->
+<!--    <title>Вход - PR-WEB</title>-->
+<!--    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">-->
+<!--</head>-->
+<!--<body>-->
+<!--    <h1>Вход</h1>-->
+<!--    {% with messages = get_flashed_messages(with_categories=true) %}-->
+<!--        {% if messages %}-->
+<!--            {% for category, message in messages %}-->
+<!--                <p>{{ message }}</p>-->
+<!--            {% endfor %}-->
+<!--        {% endif %}-->
+<!--    {% endwith %}-->
+<!--    <form method="POST">-->
+<!--        {{ form.hidden_tag() }}-->
+<!--        <p>{{ form.username.label }}<br>{{ form.username(size=32) }}</p>-->
+<!--        <p>{{ form.password.label }}<br>{{ form.password(size=32) }}</p>-->
+<!--        <p>{{ form.submit() }}</p>-->
+<!--    </form>-->
+<!--    <p>Нет аккаунта? <a href="{{ url_for('register') }}">Регистрация</a></p>-->
+<!--</body>-->
+<!--</html>-->

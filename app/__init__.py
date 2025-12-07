@@ -13,4 +13,9 @@ bcrypt = Bcrypt(app)
 login_manager = LoginManager(app)
 login_manager.login_view = 'login'
 
+# login_manager.login_message = 'Пожалуйста, войдите для доступа'
+login_manager.login_message = 'Пожалуйста, войдите в систему для доступа к этой странице.'
+login_manager.login_message_category = 'info'  # будет синим цветом
+
+
 from app import routes, models

@@ -1,12 +1,49 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>PR-WEB Clicker</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Кликер - PR-WEB</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 </head>
 <body>
-    <h1>Привет, {{ current_user.username }}!</h1>
-    <p>Кликов: {{ current_user.clicks }}</p>
-    <a href="{{ url_for('click') }}"><button>Кликнуть!</button></a>
-    <a href="{{ url_for('logout') }}"><button>Выйти</button></a>
+    <nav>
+        <a href="{{ url_for('index') }}" class="logo">PR-WEB</a>
+        <div class="nav-links">
+            <a href="{{ url_for('logout') }}" class="logout-button">Выйти</a>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="profile-card">
+            <h2>Привет, {{ current_user.username }}!</h2>
+            <p>Добро пожаловать в игру кликер</p>
+        </div>
+
+        <h1>Кликер!</h1>
+
+        <div class="click-counter">{{ current_user.clicks }}</div>
+        <p class="click-label">Количество кликов</p>
+
+        <a href="{{ url_for('click') }}">
+            <button class="clicker-button">Кликнуть!</button>
+        </a>
+    </div>
 </body>
 </html>
+
+
+
+<!--<!DOCTYPE html>-->
+<!--<html>-->
+<!--<head>-->
+<!--    <title>PR-WEB Clicker</title>-->
+<!--    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">-->
+<!--</head>-->
+<!--<body>-->
+<!--    <h1>Привет, {{ current_user.username }}!</h1>-->
+<!--    <p>Кликов: {{ current_user.clicks }}</p>-->
+<!--    <a href="{{ url_for('click') }}"><button>Кликнуть!</button></a>-->
+<!--    <a href="{{ url_for('logout') }}"><button>Выйти</button></a>-->
+<!--</body>-->
+<!--</html>-->

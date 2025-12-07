@@ -1,17 +1,64 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Регистрация - PR-WEB</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 </head>
 <body>
-    <h1>Регистрация</h1>
-    <form method="POST">
-        {{ form.hidden_tag() }}
-        <p>{{ form.username.label }}<br>{{ form.username(size=32) }}</p>
-        <p>{{ form.password.label }}<br>{{ form.password(size=32) }}</p>
-        <p>{{ form.confirm_password.label }}<br>{{ form.confirm_password(size=32) }}</p>
-        <p>{{ form.submit() }}</p>
-    </form>
-    <p>Уже есть аккаунт? <a href="{{ url_for('login') }}">Войти</a></p>
+    <nav>
+        <a href="{{ url_for('register') }}" class="logo">PR-WEB</a>
+        <div class="nav-links">
+            <a href="{{ url_for('login') }}">Вход в аккаунт</a>
+        </div>
+    </nav>
+
+    <div class="container">
+        <h1>Регистрация</h1>
+
+        <form method="POST">
+            {{ form.hidden_tag() }}
+
+            <div>
+                <label>{{ form.username.label }}</label>
+                {{ form.username(size=32) }}
+            </div>
+
+            <div>
+                <label>{{ form.password.label }}</label>
+                {{ form.password(size=32) }}
+            </div>
+
+            <div>
+                <label>{{ form.confirm_password.label }}</label>
+                {{ form.confirm_password(size=32) }}
+            </div>
+
+            {{ form.submit() }}
+        </form>
+
+        <p>Уже есть аккаунт? <a href="{{ url_for('login') }}">Войти</a></p>
+    </div>
 </body>
 </html>
+
+
+<!--<!DOCTYPE html>-->
+<!--<html>-->
+<!--<head>-->
+<!--    <title>Регистрация - PR-WEB</title>-->
+<!--    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">-->
+<!--</head>-->
+<!--<body>-->
+<!--    <h1>Регистрация</h1>-->
+<!--    <form method="POST">-->
+<!--        {{ form.hidden_tag() }}-->
+<!--        <p>{{ form.username.label }}<br>{{ form.username(size=32) }}</p>-->
+<!--        <p>{{ form.password.label }}<br>{{ form.password(size=32) }}</p>-->
+<!--        <p>{{ form.confirm_password.label }}<br>{{ form.confirm_password(size=32) }}</p>-->
+<!--        <p>{{ form.submit() }}</p>-->
+<!--    </form>-->
+<!--    <p>Уже есть аккаунт? <a href="{{ url_for('login') }}">Войти</a></p>-->
+<!--</body>-->
+<!--</html>-->
